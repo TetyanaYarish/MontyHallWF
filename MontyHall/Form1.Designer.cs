@@ -102,6 +102,7 @@ namespace MontyHall
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.TransparencyKey = System.Drawing.Color.Crimson;
+            this.Click += new System.EventHandler(this.Form1_Click);
             ((System.ComponentModel.ISupportInitialize)(this.Door3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Door2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Door1)).EndInit();

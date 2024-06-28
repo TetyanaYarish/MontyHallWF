@@ -1,5 +1,4 @@
-﻿using Monty_Hall;
-using MontyHall.Logic;
+﻿
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,20 +17,16 @@ namespace MontyHall
     {
         private Point pos;
         private bool dragging, lose;
-        //Game game;
+        SoundPlayer goatSound = new SoundPlayer("C:..\\..\\Resources\\goat-sound.wav\r\n");
+        SoundPlayer successSound = new SoundPlayer("C:..\\..\\Resources\\success.wav\r\n");
         bool firstClick = true;
-        //RunTheGame runGame;
         object n1 = null;
-        //RandomPrizeGenerator prizeGenerator = new RandomPrizeGenerator();
         Bitmap bitmap = new Bitmap(@"C:\Users\User\Documents\Resume\Doors\MontyHall\MontyHall\Resources\Car1.jpeg");
         Bitmap bitmapGoat = new Bitmap(@"C:\Users\User\Documents\Resume\Doors\MontyHall\MontyHall\Resources\Goat.jpeg");
         int rndDor = RandomDoorGenerator();
         public Form1()
         {
             InitializeComponent();
-            //game = new Game();
-            //runGame = new RunTheGame();
-            //prizeGenerator = new RandomPrizeGenerator();
             playerChoise.Visible = false;
             textPlayerLost.Visible = false;
             textPlayerWon.Visible = false;
@@ -42,13 +38,13 @@ namespace MontyHall
             n1 = randomGenerator.YourPrize();
             if (firstClick)
             {
-              //  n1 = randomGenerator.YourPrize();
                 if (rndDor == 1)
                     Door2.Image = bitmapGoat;
                 if (rndDor == 2)
                     Door3.Image = bitmapGoat;
                 firstClick = false;
                 playerChoise.Visible = true;
+                goatSound.Play();
 
             }
             else
@@ -62,6 +58,7 @@ namespace MontyHall
                     if (rndDor == 1)
                         Door3.Image = bitmapGoat;
                     textPlayerWon.Visible = true;
+                    successSound.Play();
                 }
                 else if(n1 == "Goat")
                 {
@@ -71,6 +68,7 @@ namespace MontyHall
                     if (rndDor == 1)
                         Door3.Image = bitmap;
                     textPlayerLost.Visible = true;
+                    goatSound.Play();
                 }
 
             }
@@ -88,14 +86,13 @@ namespace MontyHall
             n1 = randomGenerator.YourPrize();
             if (firstClick)
             {
-                //n1 = randomGenerator.YourPrize();
                 if (rndDor == 1)
                     Door1.Image = bitmapGoat;
                 if (rndDor == 2)
                     Door3.Image = bitmapGoat;
                 firstClick = false;
                 playerChoise.Visible = true;
-
+                goatSound.Play();
             }
             else
             {
@@ -108,19 +105,17 @@ namespace MontyHall
                     if (rndDor == 1)
                         Door3.Image = bitmapGoat;
                     textPlayerWon.Visible = true;
+                    successSound.Play();
                 }
                 else if (n1 == "Goat")
                 {
                     Door2.Image = bitmapGoat;
-                    if (rndDor == 1)
-                        Door1.Image = bitmap;
                     if (rndDor == 2)
+                        Door1.Image = bitmap;
+                    if (rndDor == 1)
                         Door3.Image = bitmap;
-                    //if (rndDor == 2)
-                    //    Door1.Image = bitmap;
-                    //if (rndDor == 1)
-                    //    Door3.Image = bitmap;
                     textPlayerLost.Visible = true;
+                    goatSound.Play();
                 }
 
             }
@@ -147,20 +142,23 @@ namespace MontyHall
 
         }
 
+        private void Form1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void Door3_Click(object sender, EventArgs e)
         {
             n1 = randomGenerator.YourPrize();
             if (firstClick)
             {
-               // n1 = randomGenerator.YourPrize();
                 if (rndDor == 1)
                     Door2.Image = bitmapGoat;
                 if (rndDor == 2)
                     Door1.Image = bitmapGoat;
                 firstClick = false;
                 playerChoise.Visible = true;
-
+                goatSound.Play();
             }
             else
             {
@@ -173,6 +171,7 @@ namespace MontyHall
                     if (rndDor == 1)
                         Door1.Image = bitmapGoat;
                     textPlayerWon.Visible = true;
+                    successSound.Play();
                 }
                 else if (n1 == "Goat")
                 {
@@ -182,6 +181,7 @@ namespace MontyHall
                     if (rndDor == 1)
                         Door1.Image = bitmap;
                     textPlayerLost.Visible = true;
+                    goatSound.Play();
                 }
 
             }
