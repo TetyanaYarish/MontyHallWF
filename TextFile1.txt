@@ -1,0 +1,58 @@
+  //var n2=randomGenerator.YourPrize();
+            //var n3=randomGenerator.YourPrize();
+            //var p1 = game.prizeInFirstDoor;
+            //var p2 = game.prizeInSecondDoor;
+            //var p3 = game.prizeInThirdDoor;
+
+            //if (rndDor == 1)
+            //    Door2.Image = bitmap;
+            //if (rndDor == 2)
+            //    Door3.Image = bitmap;
+            //if (firstClick) Door2.Image = bitmapCat;
+            //else Door2.Image = bitmapGoat;
+            //firstClick = false;
+
+             // randomGenerator.ReturnAllPrizes();
+            //n1 = randomGenerator.YourPrize();
+            //if (rndDor == 1)
+            //    Door3.Image = bitmap;
+            //if (rndDor == 2)
+            //    Door1.Image = bitmap;
+
+              //private void Door2_MouseClick(object sender, MouseEventArgs e)
+        //{
+        //   // randomGenerator.ReturnAllPrizes();
+        //    var n1 = randomGenerator.YourPrize();
+        //    //if (rndDor == 1)
+        //    //    Door3.Image = bitmap;
+        //    //if (rndDor == 2)
+        //    //    Door1.Image = bitmap;
+        //    //flag *= -1;
+        //    //if (flag == -1)
+        //    //{
+        //    //    // Door1.Enabled = true;
+        //    //    Bitmap bitmap = new Bitmap(@"C:\Users\User\Documents\Resume\Doors\MontyHall\MontyHall\Resources\Car1.jpeg");
+        //    //    BackgroundImage = new Bitmap(bitmap);
+
+        //    //}
+        //    //else
+        //    //{
+        //    //    Bitmap bitmap = new Bitmap(@"C:\Users\User\Documents\Resume\Doors\MontyHall\MontyHall\Resources\Door1.jpeg");
+        //    //}
+        //    //Door2.BackgroundImage = null;
+        //    //BackGround.BackColor = Color.White;
+        //    ////BackColor = Color.Aqua;
+        //}
+
+                    //game.ReturnPrize();
+            //game.PlayerLose();
+            // object m=game.PlayerWon();
+            //string result = runGame.ReturnPrize();
+            //  Door1.Visible = false;
+            //if (runGame.ReturnPrize() == "Luxury car") Door2.Image = bitmapCat;
+            //if (runGame.ReturnPrize() == "Goat") Door2.Image = bitmapGoat;
+            //runGame.prizeInFirstDoor = true;
+            //if (rndDor == 1)
+            //    Door2.Image = bitmap;
+            //if (rndDor == 2)
+            //    Door1.Image = bitmap;
