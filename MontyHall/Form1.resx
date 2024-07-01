@@ -166,7 +166,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Door2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="Door1.Location" type="System.Drawing.Point, System.Drawing">
     <value>69, 104</value>
@@ -190,7 +190,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Door1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="textPlayerWon.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
@@ -221,7 +221,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textPlayerWon.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="textPlayerLost.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
@@ -252,7 +252,7 @@ Your Prize is Goat!</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textPlayerLost.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="playerChoise.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
@@ -283,7 +283,67 @@ Your Prize is Goat!</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;playerChoise.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
+  </data>
+  <data name="wellcomeMSG2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
+  </data>
+  <data name="wellcomeMSG2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 23</value>
+  </data>
+  <data name="wellcomeMSG2.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="wellcomeMSG2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 53</value>
+  </data>
+  <data name="wellcomeMSG2.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="wellcomeMSG2.Text" xml:space="preserve">
+    <value>Choose between three doors.</value>
+  </data>
+  <data name="&gt;&gt;wellcomeMSG2.Name" xml:space="preserve">
+    <value>wellcomeMSG2</value>
+  </data>
+  <data name="&gt;&gt;wellcomeMSG2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wellcomeMSG2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;wellcomeMSG2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="wellcomeMSG1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 36pt, style=Bold</value>
+  </data>
+  <data name="wellcomeMSG1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>249, 394</value>
+  </data>
+  <data name="wellcomeMSG1.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="wellcomeMSG1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 53</value>
+  </data>
+  <data name="wellcomeMSG1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="wellcomeMSG1.Text" xml:space="preserve">
+    <value>Monty Hall Game</value>
+  </data>
+  <data name="&gt;&gt;wellcomeMSG1.Name" xml:space="preserve">
+    <value>wellcomeMSG1</value>
+  </data>
+  <data name="&gt;&gt;wellcomeMSG1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wellcomeMSG1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;wellcomeMSG1.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

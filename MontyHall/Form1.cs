@@ -16,11 +16,11 @@ namespace MontyHall
     public partial class Form1 : Form
     {
         private Point pos;
-        private bool dragging, lose;
+        private bool dragging, lose, firstDoor, secondDoor, thirdDoor;
         SoundPlayer goatSound = new SoundPlayer("C:..\\..\\Resources\\goat-sound.wav\r\n");
         SoundPlayer successSound = new SoundPlayer("C:..\\..\\Resources\\success.wav\r\n");
         bool firstClick = true;
-        object n1 = null;
+        string n1;
         Bitmap bitmap = new Bitmap(@"C:\Users\User\Documents\Resume\Doors\MontyHall\MontyHall\Resources\Car1.jpeg");
         Bitmap bitmapGoat = new Bitmap(@"C:\Users\User\Documents\Resume\Doors\MontyHall\MontyHall\Resources\Goat.jpeg");
         int rndDor = RandomDoorGenerator();
@@ -30,49 +30,88 @@ namespace MontyHall
             playerChoise.Visible = false;
             textPlayerLost.Visible = false;
             textPlayerWon.Visible = false;
+            n1 = randomGenerator.YourPrize();
         }
         RandomPrizeGenerator randomGenerator = new RandomPrizeGenerator();
-        
+        private void Congratulation()
+        {
+
+            textPlayerWon.Visible = true;
+            successSound.Play();
+        }        
+        private void Looser()
+        {
+
+            textPlayerLost.Visible = true;
+            goatSound.Play();
+        }
         private void Door1_Click(object sender, EventArgs e)
         {
-            n1 = randomGenerator.YourPrize();
+            Console.WriteLine(n1);
+
+
             if (firstClick)
             {
                 if (rndDor == 1)
-                    Door2.Image = bitmapGoat;
-                if (rndDor == 2)
                     Door3.Image = bitmapGoat;
+                if (rndDor == 2)
+                    Door2.Image = bitmapGoat;
                 firstClick = false;
                 playerChoise.Visible = true;
                 goatSound.Play();
+                wellcomeMSG2.Visible = false;
+                firstDoor = true;
 
             }
             else
             {
+                wellcomeMSG1.Visible = false;
                 playerChoise.Visible = false;
-                if (n1 == "Luxury car")
+                if (firstDoor)
                 {
-                   Door1.Image = bitmap;
-                    if (rndDor == 2)
-                        Door2.Image = bitmapGoat;
-                    if (rndDor == 1)
+                    if (n1 == "Luxury car")
+                    {
+                        Door1.Image = bitmap;
                         Door3.Image = bitmapGoat;
-                    textPlayerWon.Visible = true;
-                    successSound.Play();
+                        Door2.Image = bitmapGoat; Congratulation();
+                    }
+                    else if (n1 == "Goat")
+                    {
+                        Door1.Image = bitmapGoat;
+                        if (rndDor == 2)
+                            Door3.Image = bitmap;
+                        if (rndDor == 1)
+                            Door2.Image = bitmap;
+                        Looser();
+                    }
                 }
-                else if(n1 == "Goat")
+
+                else if (rndDor == 1 || rndDor==2 && n1 == "Goat") //change the door and player won
                 {
+                    Door1.Image = bitmap;
+                    Door2.Image = bitmapGoat;
+                    Door3.Image = bitmapGoat;
+                    Congratulation();
+                }
+
+
+                else if (n1 == "Luxury car" && rndDor == 2)//change the door and player loose
+                {
+                    Door2.Image = bitmap;
                     Door1.Image = bitmapGoat;
-                    if (rndDor  == 2)
-                        Door2.Image = bitmap;
-                    if (rndDor == 1)
-                        Door3.Image = bitmap;
-                    textPlayerLost.Visible = true;
-                    goatSound.Play();
+                    Door3.Image = bitmapGoat;
+                    Looser();
+                }
+                else if (n1 == "Luxury car" && rndDor == 1)//change the door and player loose
+                {
+                    Door2.Image = bitmap;
+                    Door1.Image = bitmapGoat;
+                    Door3.Image = bitmapGoat;
+                    Looser();
                 }
 
             }
-          
+
         }
         private static int RandomDoorGenerator()
         {
@@ -83,7 +122,9 @@ namespace MontyHall
 
         private void Door2_Click(object sender, EventArgs e)
         {
-            n1 = randomGenerator.YourPrize();
+            Console.WriteLine(n1);
+
+            //n1 = randomGenerator.YourPrize();
             if (firstClick)
             {
                 if (rndDor == 1)
@@ -93,40 +134,127 @@ namespace MontyHall
                 firstClick = false;
                 playerChoise.Visible = true;
                 goatSound.Play();
+                wellcomeMSG2.Visible = false;
+                secondDoor = true;
             }
             else
             {
+                wellcomeMSG1.Visible = false;
                 playerChoise.Visible = false;
-                if (n1 == "Luxury car")
+
+                if (secondDoor)
+                {
+                    if (n1 == "Goat")
+                    {
+                        Door2.Image = bitmapGoat;
+                        if (rndDor == 1)
+                            Door3.Image = bitmap;
+
+                        if (rndDor == 2)
+                            Door1.Image = bitmap;
+                        Looser();
+                    }
+                    else if (n1 == "Luxury car")
+                    {
+                        Door2.Image = bitmap;
+                        Door3.Image = bitmapGoat;
+                        Door1.Image = bitmapGoat;
+                        Congratulation();
+                    }
+                }
+
+                else if (rndDor == 1 || rndDor == 2 && n1 == "Goat") //change the door and player won
                 {
                     Door2.Image = bitmap;
-                    if (rndDor == 2)
-                        Door1.Image = bitmapGoat;
-                    if (rndDor == 1)
-                        Door3.Image = bitmapGoat;
-                    textPlayerWon.Visible = true;
-                    successSound.Play();
+                    Door1.Image = bitmapGoat;
+                    Door3.Image = bitmapGoat;
+                    Congratulation();
                 }
-                else if (n1 == "Goat")
+                else if (n1 == "Luxury car" && rndDor == 2)//change the door and player loose
                 {
+                    Door1.Image = bitmap;
                     Door2.Image = bitmapGoat;
-                    if (rndDor == 2)
-                        Door1.Image = bitmap;
-                    if (rndDor == 1)
-                        Door3.Image = bitmap;
-                    textPlayerLost.Visible = true;
-                    goatSound.Play();
+                    Door3.Image = bitmapGoat;
+                    Looser();
                 }
-
+                else if (n1 == "Luxury car" && rndDor == 1)//change the door and player loose
+                {
+                    Door3.Image = bitmap;
+                    Door1.Image = bitmapGoat;
+                    Door2.Image = bitmapGoat;
+                    Looser();
+                }
             }
         }
+        private void Door3_Click(object sender, EventArgs e)
+        {
 
-        private void BackGround_MouseClick(object sender, MouseEventArgs e)
+            if (firstClick)
+            {
+                if (rndDor == 1)
+                    Door1.Image = bitmapGoat;
+                else if (rndDor == 2)
+                    Door2.Image = bitmapGoat;
+                firstClick = false;
+                playerChoise.Visible = true;
+                goatSound.Play();
+                wellcomeMSG2.Visible = false;
+                thirdDoor = true;
+            }
+            else
+            {
+                wellcomeMSG1.Visible = false;
+                playerChoise.Visible = false;
+                if (thirdDoor)
+                {
+                    if (n1 == "Luxury car")
+                    {
+                        Door3.Image = bitmap;
+                        Door2.Image = bitmapGoat;
+                        Door1.Image = bitmapGoat;
+                        Congratulation();
+                    }
+                    else if (n1 == "Goat")
+                    {
+                        Door3.Image = bitmapGoat;
+                        if (rndDor == 2)
+                            Door1.Image = bitmap;
+                        else if (rndDor == 1)
+                            Door2.Image = bitmap;
+                        Looser();
+                    }
+                }
+                else if (rndDor == 1 || rndDor == 2 && n1 == "Goat") //change the door and player won
+                {
+                    Door3.Image = bitmap;
+                    Door2.Image = bitmapGoat;
+                    Door1.Image = bitmapGoat;
+                    Congratulation();
+                }
+
+
+                else if (n1 == "Luxury car" && rndDor == 2)//change the door and player loose
+                {
+                    Door1.Image = bitmap;
+                    Door2.Image = bitmapGoat;
+                    Door3.Image = bitmapGoat;
+                    Looser();
+                }
+                else if (n1 == "Luxury car" && rndDor == 1)//change the door and player loose
+                {
+                    Door2.Image = bitmap;
+                    Door1.Image = bitmapGoat;
+                    Door3.Image = bitmapGoat;
+                    Looser();
+                }
+            }
+        }
+            private void BackGround_MouseClick(object sender, MouseEventArgs e)
         {
             if (dragging)
             {
                 Point currPoint = PointToScreen(new Point(e.X, e.Y));
-                this.Location = new Point(currPoint.X - pos.X, currPoint.Y - pos.Y );
+                this.Location = new Point(currPoint.X - pos.X, currPoint.Y - pos.Y);
             }
 
         }
@@ -147,48 +275,6 @@ namespace MontyHall
             this.Close();
         }
 
-        private void Door3_Click(object sender, EventArgs e)
-        {
-            n1 = randomGenerator.YourPrize();
-            if (firstClick)
-            {
-                if (rndDor == 1)
-                    Door2.Image = bitmapGoat;
-                if (rndDor == 2)
-                    Door1.Image = bitmapGoat;
-                firstClick = false;
-                playerChoise.Visible = true;
-                goatSound.Play();
-            }
-            else
-            {
-                playerChoise.Visible = false;
-                if (n1 == "Luxury car")
-                {
-                    Door3.Image = bitmap;
-                    if (rndDor == 2)
-                        Door2.Image = bitmapGoat;
-                    if (rndDor == 1)
-                        Door1.Image = bitmapGoat;
-                    textPlayerWon.Visible = true;
-                    successSound.Play();
-                }
-                else if (n1 == "Goat")
-                {
-                    Door3.Image = bitmapGoat;
-                    if (rndDor == 2)
-                        Door2.Image = bitmap;
-                    if (rndDor == 1)
-                        Door1.Image = bitmap;
-                    textPlayerLost.Visible = true;
-                    goatSound.Play();
-                }
-
-            }
-
-            // this.Close();
-        }
-
-      
+       
     }
 }
